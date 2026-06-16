@@ -5,3 +5,7 @@
 # npm run dev
 
 для запуска сервера (+nodemon)
+
+# npm run server
+
+для запуска сервера
