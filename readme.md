@@ -1,11 +1,15 @@
-## base-mern
+# base-mern
 
 базовый мерн проект для разработки шаблона
 
-# npm run dev
+**для запуска сервера** (+nodemon)
 
-для запуска сервера (+nodemon)
+```
+npm run dev
+```
 
-# npm run server
+**для запуска сервера**
 
-для запуска сервера
+```
+npm run server
+```
