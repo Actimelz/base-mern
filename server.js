@@ -1,5 +1,5 @@
 const express = require("express");
-// const mongoose = require("mongoose");
+// const mongoose = require("mongoose"); // для локальной бд
 const { MongoClient } = require("mongodb");
 const path = require("path");
 require("dotenv").config();
@@ -15,13 +15,11 @@ app.use(express.urlencoded({ extended: true })); // для парсинга form
 app.use("/static", express.static(__dirname + "/assets")); // путь к изображениям
 
 //
-// mongoose.connect('');
+// mongoose.connect(''); // для локальной бд
 const myMongoClient = new MongoClient(mongoURI);
 
 //
-app.get("/", (req, res) => {
-  res.send("Hello, MERN!!!");
-});
+app.use("/api/items", require("./routes/items"));
 
 //
 myMongoClient.connect().then(() => {
