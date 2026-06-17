@@ -2,6 +2,15 @@
 
 базовый мерн проект для разработки шаблона
 
+backend:
+
+- node.js
+- express
+
+DB:
+
+- mongoDB
+
 **для запуска сервера** (+nodemon)
 
 ```
@@ -13,3 +22,5 @@ npm run dev
 ```
 npm run server
 ```
+
+add dev branch
