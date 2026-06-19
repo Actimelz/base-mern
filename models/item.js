@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-//
+// создание mongoose схемы
 const itemSchema = mongoose.Schema({
   name: {
     type: String,
@@ -24,5 +24,8 @@ const itemSchema = mongoose.Schema({
   },
 });
 
+// создание модели на основе схемы
+const Item = mongoose.model("Item", itemSchema);
+module.exports = Item;
 //
-module.exports = mongoose.model("Item", itemSchema);
+// module.exports = mongoose.model("Item", itemSchema);
