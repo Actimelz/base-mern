@@ -1,6 +1,6 @@
- const express = require("express");
+const express = require("express");
 const path = require("path");
-const { getAllItems, createItem } = require("../controllers/items");
+const { getAllItems, getItem, createItem } = require("../controllers/items");
 // const multer = require("multer");
 const uploadMiddleware = require("../middleware/multer");
 
@@ -23,16 +23,13 @@ const uploadMiddleware = require("../middleware/multer");
 // экземпляр роутера
 const itemsRouter = express.Router();
 
-// GET /api/items
+// GET --- /api/items
 itemsRouter.get("/", getAllItems);
 
-// GET /api/items/:id
-itemsRouter.get("/:id", (req, res) => {
-  const { id } = req.body;
-  res.send(`Get item ${id}`);
-});
+// GET:id --- /api/items/:id
+itemsRouter.get("/:id", getItem);
 
-// POST /api/items
+// POST --- /api/items
 // itemsRouter.post("/", upload.single("itemImage"), createItem);
 itemsRouter.post("/", uploadMiddleware.single("itemImage"), createItem);
 
