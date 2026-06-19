@@ -1,6 +1,6 @@
 const Item = require("../models/item");
 
-// GET
+// ================={ GET }=================
 const getAllItems = async (req, res) => {
   try {
     const allItems = await Item.find();
@@ -12,7 +12,21 @@ const getAllItems = async (req, res) => {
   }
 };
 
-// POST
+// ================={ GET :id }=================
+const getItem = async (req, res) => {
+  // const { id } = req.params;
+
+  try {
+    const item = await Item.find({ _id: id });
+
+    res.status(200).json(item);
+  } catch (error) {
+    console.error(`Ошибка при получении getItem: ${error.message}`);
+    res.status(400).json({ message: "Item не найден" });
+  }
+};
+
+// ================={ POST }=================
 const createItem = async (req, res) => {
   // формируем объект ошибки
   const errors = {};
@@ -64,5 +78,4 @@ const createItem = async (req, res) => {
   }
 };
 
-module.exports = { getAllItems, createItem };
-// fixes
+module.exports = { getAllItems, getItem, createItem };
