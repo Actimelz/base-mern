@@ -1,11 +1,12 @@
 const multer = require("multer");
+const path = require("path");
 
 //
 // multer.diskStorage - создание конфигурации multer
 const storage = multer.diskStorage({
   destination: "./assets/",
   filename: (req, file, cb) => {
-    cd(
+    cb(
       null,
       file.fieldname +
         "-" +
@@ -22,13 +23,15 @@ const fileFilter = (req, file, cb) => {
   if (types.includes(file.mimetype)) {
     cb(null, true);
   } else {
-    cd(null, false);
+    cb(null, false);
   }
 };
 
 // создание экземпляра multer
-// const upload = multer({
-//   storage,
-// });
+const upload = multer({
+  storage,
+  fileFilter,
+});
 
-module.exports = multer({ storage, fileFilter });
+// module.exports = multer({ storage, fileFilter });
+module.exports = upload;

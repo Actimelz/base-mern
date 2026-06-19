@@ -1,8 +1,8 @@
-const express = require("express");
+ const express = require("express");
 const path = require("path");
 const { getAllItems, createItem } = require("../controllers/items");
 // const multer = require("multer");
-const fileMiddleware = require("../middleware/multer");
+const uploadMiddleware = require("../middleware/multer");
 
 // multer.diskStorage - создание конфигурации multer
 // const storage = multer.diskStorage({
@@ -34,7 +34,7 @@ itemsRouter.get("/:id", (req, res) => {
 
 // POST /api/items
 // itemsRouter.post("/", upload.single("itemImage"), createItem);
-itemsRouter.post("/", fileMiddleware.single("itemImage"), createItem);
+itemsRouter.post("/", uploadMiddleware.single("itemImage"), createItem);
 
 //
 module.exports = itemsRouter;

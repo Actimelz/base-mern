@@ -15,6 +15,10 @@ const getAllItems = async (req, res) => {
 // POST
 const createItem = async (req, res) => {
   try {
+    if (!req.file) {
+      console.error("Нет изображения");
+    }
+
     const { name, price, description, capacity } = req.body;
 
     // Формируем URL для доступа к файлу
@@ -25,8 +29,8 @@ const createItem = async (req, res) => {
       price,
       description,
       capacity,
-      // itemImage: `http://localhost:${process.env.PORT}/static/${req.file.filename}`,
-      itemImage: `/assets/${req.file.filename}`,
+      itemImage: `http://localhost:${process.env.PORT}/static/${req.file.filename}`,
+      // itemImage: `/assets/${req.file.filename}`,
     };
 
     const newItem = await Item.create(itemModel);
