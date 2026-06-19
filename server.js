@@ -12,7 +12,7 @@ const mongoURI = process.env.MONGO_DB_URI;
 // middlewares
 app.use(express.json()); // для автопарсинга json ("Content-Type": "application/json")
 app.use(express.urlencoded({ extended: true })); // для парсинга form-data ("Content-Type": "application/x-www-form")
-app.use("/static", express.static(__dirname + "/assets")); // путь к изображениям
+app.use("/static", express.static(__dirname + "/assets")); // путь к изображениям для express
 
 //
 app.use("/api/items", require("./routes/items"));
