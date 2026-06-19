@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 // создание mongoose схемы
 const itemSchema = mongoose.Schema({
-  name: {
+  title: {
     type: String,
     required: true,
   },
@@ -12,7 +12,7 @@ const itemSchema = mongoose.Schema({
   },
   description: {
     type: String,
-    required: true,
+    required: false,
   },
   capacity: {
     type: String,
